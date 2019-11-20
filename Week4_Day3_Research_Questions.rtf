@@ -1,0 +1,117 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica-Oblique;\f1\fswiss\fcharset0 Helvetica-Bold;\f2\fswiss\fcharset0 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;\red26\green26\blue26;}
+{\*\expandedcolortbl;;\cssrgb\c13333\c13333\c13333;}
+\margl1440\margr1440\vieww9020\viewh6420\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\i\fs24 \cf0 Sha\'92Marcus Walker\
+\
+Week4_Day3 Research Questions
+\f1\i0\b \
+\
+1. What are shared preferences? When do we use Shared Preferences?\
+	Shared preferences allow you to save and retrieve data in the form of key, value pairs. We use shared preferences when we want to store data locally and pass it through activities.\
+\
+2. How are the values stored in shared preferences?\
+	The values are stored in the form of key, value pair, by calling the putString, putInt, etc methods. Assign the values a key string and access them by using that key in another activity.\
+\
+3. How do you get the associated file of shared preferences?\
+	Shared preferences are stored in an xml file in the app data folder, or you can check your device\'92s files in the explorer tab of the device\
+\
+4. Can you have multiple shared preferences file? Yes, you just need to initialize the shared preferences object for each file.\
+
+\f2\b0 \
+
+\f1\b 5. How do you write a file to internal/external storage? First, initialize the file\'92s name and path and create the file using the File class. Then use File Output Stream to write the data into the file. For internal storage, open the file using File Output Stream and write into the file.\
+
+\f2\b0 \
+
+\f1\b 6. What permission(s) are needed for the above? \
+	READ_EXTERNAL_STORAGE\
+	WRITE_EXTERNAL_STORAGE
+\f2\b0 \
+	\
+
+\f1\b 7. How do you create a SQL database in Android? Create a class using SQLiteOpenHelper, be sure to include the database name, database version, table name along with the ID and the columns.\
+
+\f2\b0 \
+
+\f1\b 8. What are methods you need to implement when extend the \'93native database\'94 class? onCreate, onUpgrade, addEntry (optional), readAllEntries(optional)\
+
+\f2\b0 \
+
+\f1\b 9. How do you update the schema of the database? To update the schema of the database is through the SQL statements that are created in the database class, and the onUpgrade method within the database class.\
+
+\f2\b0 \
+
+\f1\b 10. How do you execute a query in database helper class? Execute your query in a function in the database class. Within the function, set your query to a variable, initialize the database, and call the rawQuery method with the query variable as the first parameter and null as the second.\
+
+\f2\b0 \
+
+\f1\b 11. Name the methods in the database helper class used for CRUD operations?\
+Create - onCreate(db : SQLiteDatabase)\
+Read - readAllItems() : Cursor\
+Update - onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int)\
+Delete - deleteItem(id : Int)\
+
+\f2\b0 \
+
+\f1\b 12. How do you have a image in the SQL database? You can use \'93blob\'94 to store the image. BLOB stands for binary large object that is a collection of binary data stored as a value in the database. You can convert the data into a QByte Array, and insert it into the database.\
+
+\f2\b0 \
+
+\f1\b 13. Write a query to create a table.\
+\
+\'93CREATE TABLE $TABLE_NAME ( $ID INTEGER PRIMARY KEY, $COLUMN_NAME TEXT, $COLUMN_NAME TEXT)\'94 
+\f2\b0 \
+\
+
+\f1\b 14. Write a query to select everything from a table? \
+\'93SELECT * FROM $TABLE_NAME\'94\
+
+\f2\b0 \
+
+\f1\b 15. What is a recyclerView? A view group for rendering larger data sets of views in which can be recycled and scrolled efficiently, and upgraded version of a list view one would say.
+\f2\b0 \
+\
+
+\f1\b 16. What is a list view?\cf2 \expnd0\expndtw0\kerning0
+iA list view is a view which groups several items and display them in vertical scrollable list.\
+\cf0 \kerning1\expnd0\expndtw0 \
+17. Which is better and why? A recycler view is better, because it easily implements vertical and horizontal scrolling. Recycler view supports multiple layout managers: Linear Layout Manager, Grid Layout Manager, and Staggered Grid Layout Manager. The recycler view also enforces the view holder pattern which allows for smooth scrolling.\
+
+\f2\b0 \
+
+\f1\b 18. How would you implement the RecyclerView.Adapter class? Write a sample class explaining what each method is responsible for.\
+\
+onCreateViewHolder(parent: ViewGroup, viewType: Int): MyCustomViewHolder\{\
+	val view = LayoutInflater.from(parent.context)\
+				      .inflate(R.layout.item_layout, parent, false)\
+	return MyCustomViewHolder(view)\
+\} - creates the view group for the view\
+\
+onBindViewHolder(holder: MyCustomViewHolder, position: Int) \{\
+	holder.apply \{\
+		Text.text = list[position].name\
+	\}\
+\}- Upgrades the items in the list\
+\
+getItemCount() : Int \{\
+	return list.size\} - Gets the number of items in the list.\
+\
+inner class MyCustomViewHolder(itemView: View) : 		  RecyclerView.ViewHolder(itemView) \{\
+\
+	val Text = itemView.findViewById<TextView>(R.id.textview)\
+\
+\} - initialize the text views of the layout in the recycler view
+\f2\b0 \
+\
+
+\f1\b 19. How can you change the orientation of the recyclerView?\
+With the onConfigurationChanged method\
+
+\f2\b0 \
+
+\f1\b 20. Name some layout managers you can use with the recyclerView? Linear Layout, Grid Layout, Staggered Grid Layout}
